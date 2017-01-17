@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.graffino.expose</string>
+	<key>category</key>
+	<string>System</string>
+	<key>connections</key>
+	<dict>
+		<key>5A757B5B-3503-4C93-93DA-E848E06EA769</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F31B876A-96F1-48D4-A3ED-9C54B8A2C6B3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F31B876A-96F1-48D4-A3ED-9C54B8A2C6B3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C12E0294-5D17-4A6F-BED8-1E31A9D4F41D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Zeno Popovici</string>
+	<key>description</key>
+	<string>Toggle expose ON or OFF</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Expose Toggle</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>if [[ "{query}" == "off" ]]
+then
+	defaults write com.apple.dock mcx-expose-disabled -bool true
+	killall HUP Dock
+	echo "Expose has been disabled."
+elif [[ "{query}" == "on" ]]
+then
+	defaults delete com.apple.dock mcx-expose-disabled
+	killall HUP Dock
+	echo "Expose has been enabled."
+fi</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F31B876A-96F1-48D4-A3ED-9C54B8A2C6B3</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>expose</string>
+				<key>subtext</key>
+				<string>Use "on" or "off".</string>
+				<key>text</key>
+				<string>Expose Toggle</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>5A757B5B-3503-4C93-93DA-E848E06EA769</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Expose Toggle</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>C12E0294-5D17-4A6F-BED8-1E31A9D4F41D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>5A757B5B-3503-4C93-93DA-E848E06EA769</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>C12E0294-5D17-4A6F-BED8-1E31A9D4F41D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>F31B876A-96F1-48D4-A3ED-9C54B8A2C6B3</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://apps.graffino.com</string>
+</dict>
+</plist>
